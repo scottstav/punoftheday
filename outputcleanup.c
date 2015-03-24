@@ -54,7 +54,6 @@ int main(int argc, char *argv[])
             iDescriptionCount ++;
             if(iDescriptionCount == num)
             {
-                printf("Pun of the day:\n");
                 here = here + 13;
                 while(*(here) != '&')
                 {
