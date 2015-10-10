@@ -1,0 +1,19 @@
+#!/bin/bash
+
+curl -s http://feeds.feedburner.com/PunOfTheDay > PunOfTheDay #html
+
+touch output.txt
+echo " " > output.txt
+#check for executable, compile if necessary
+if [ ! -e ./filter ]; then 
+    gcc -o filter outputcleanup.c
+fi
+
+./filter #place joke in output.txt
+cat output.txt
+printf "\n"
+
+#if on mac, say the joke
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    cat output.txt | say -r 250 -v Ralph
+fi
