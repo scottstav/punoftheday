@@ -14,6 +14,9 @@ cat output.txt
 printf "\n"
 
 #if on mac, say the joke
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    cat output.txt | say -r 250 -v Ralph
+if [[ "$OSTYPE" == "darwin"*  &&  $# -ne 0 ]]; then
+
+    if [[ "$1" ==  "-a" ]]; then
+        cat output.txt | say -r 250 -v Ralph
+    fi
 fi
